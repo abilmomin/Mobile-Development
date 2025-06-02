@@ -14,7 +14,7 @@ export default function App() {
   const [timeLeft, setTimeLeft] = useState('48:53:29');
 
   useEffect(() => {
-    // Set initial end time (48 hours, 53 minutes, 29 seconds from now)
+    // Used chapgpt to help me implement the countdown timer
     const endTime = new Date().getTime() + (48 * 60 * 60 * 1000) + (53 * 60 * 1000) + (29 * 1000);
     
     const timer = setInterval(() => {
