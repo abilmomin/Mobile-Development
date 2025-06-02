@@ -47,7 +47,7 @@ export default function App() {
       
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Hello Group 9</Text>
+        <Text style={styles.headerTitle}>Hello Group 6</Text>
         <View style={styles.headerIcons}>
           <TouchableOpacity style={styles.iconButton}>
             <View style={styles.searchIcon} />
