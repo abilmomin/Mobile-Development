@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+// imports for react icons - jn
 import {
   StyleSheet,
   Text,
@@ -12,20 +14,19 @@ import {
 
 export default function App() {
   const [timeLeft, setTimeLeft] = useState('48:53:29');
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  // State to manage the visibility of the dropdown menu - jn
 
   useEffect(() => {
     // Used chapgpt to help me implement the countdown timer
     const endTime = new Date().getTime() + (48 * 60 * 60 * 1000) + (53 * 60 * 1000) + (29 * 1000);
-    
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = endTime - now;
-      
       if (distance > 0) {
         const hours = Math.floor(distance / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
         setTimeLeft(
           `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
         );
@@ -33,7 +34,6 @@ export default function App() {
         setTimeLeft('00:00:00');
       }
     }, 1000);
-
     return () => clearInterval(timer);
   }, []);
 
@@ -44,22 +44,42 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
-      
+
       {/* Header */}
+      {/*reworked the header to include a search bar and dropdown menu - jn*/}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Hello Group 6</Text>
+        <Text style={styles.headerTitle}>Group6Studios</Text>
+
+        <View style={styles.searchWrapper}>
+          <TouchableOpacity
+            style={styles.searchBar}
+            onPress={() => setDropdownVisible(!dropdownVisible)}
+          >
+            <Text style={styles.searchText}>Search for stuff</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={styles.headerIcons}>
           <TouchableOpacity style={styles.iconButton}>
-            <View style={styles.searchIcon} />
+            <Icon name="search" size={24} color="#000" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.iconButton}>
-            <View style={styles.profileIcon} />
+            <Icon name="person" size={24} color="#000" />
           </TouchableOpacity>
         </View>
       </View>
 
+      {dropdownVisible && (
+        <View style={styles.dropdown}>
+          <TouchableOpacity><Text style={styles.dropdownItem}>Shoes</Text></TouchableOpacity>
+          <TouchableOpacity><Text style={styles.dropdownItem}>Jackets</Text></TouchableOpacity>
+          <TouchableOpacity><Text style={styles.dropdownItem}>Accessories</Text></TouchableOpacity>
+          <TouchableOpacity><Text style={styles.dropdownItem}>Kids</Text></TouchableOpacity>
+        </View>
+      )}
+
+      {/* Scrollable Content */}
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        {/* Promotional Banner */}
         <View style={styles.promoBanner}>
           <View style={styles.promoContent}>
             <Text style={styles.promoTitle}>APP EXCLUSIVE: 25% OFF</Text>
@@ -72,73 +92,73 @@ export default function App() {
           </View>
         </View>
 
-        {/* Shop All Section */}
+        {/* Shop All */}
+        {/* Reworked the shop categories to include icons - jn */} 
         <View style={styles.categorySection}>
           <View style={styles.categoryLeft}>
             <View style={styles.percentIcon}>
-              <Text style={styles.percentText}>%</Text>
+              <Icon name="local-offer" size={18} color="#fff" />
             </View>
             <Text style={styles.categoryTitle}>SHOP ALL</Text>
           </View>
           <View style={styles.categoryRight}>
             <View style={styles.productImage}>
               <View style={styles.shoeImage}>
-                <Text style={styles.shoeText}>ADIDAS</Text>
-                <Text style={styles.shoeSubText}>FOOTBALL BOOT</Text>
+                <Icon name="storefront" size={40} color="#000" />
               </View>
             </View>
           </View>
         </View>
 
-        {/* Shop Men Section */}
+        {/* Shop Men */}
+        {/*reworked the shop categories to include icons - jn */}
         <View style={styles.categorySection}>
           <View style={styles.categoryLeft}>
             <View style={styles.percentIcon}>
-              <Text style={styles.percentText}>%</Text>
+              <Icon name="local-offer" size={18} color="#fff" />
             </View>
             <Text style={styles.categoryTitle}>SHOP MEN</Text>
           </View>
           <View style={styles.categoryRight}>
             <View style={styles.productImage}>
               <View style={styles.shoeImage}>
-                <Text style={styles.shoeText}>ADIDAS</Text>
-                <Text style={styles.shoeSubText}>FOOTBALL BOOT</Text>
+                <Icon name="man" size={40} color="#000" />
               </View>
             </View>
           </View>
         </View>
 
-        {/* Shop Women Section */}
+        {/* Shop Women */}
+        {/*reworked the shop categories to include icons - jn */}
         <View style={styles.categorySection}>
           <View style={styles.categoryLeft}>
             <View style={styles.percentIcon}>
-              <Text style={styles.percentText}>%</Text>
+              <Icon name="local-offer" size={18} color="#fff" />
             </View>
             <Text style={styles.categoryTitle}>SHOP WOMEN</Text>
           </View>
           <View style={styles.categoryRight}>
             <View style={styles.productImage}>
               <View style={styles.shoeImageDark}>
-                <Text style={styles.shoeTextDark}>ADIDAS</Text>
-                <Text style={styles.shoeSubTextDark}>FOOTBALL BOOT</Text>
+                <Icon name="woman" size={40} color="#fff" />
               </View>
             </View>
           </View>
         </View>
 
-        {/* Shop Kids Section */}
+        {/* Shop Kids */}
+        {/*reworked the shop categories to include icons - jn */}  
         <View style={styles.categorySection}>
           <View style={styles.categoryLeft}>
             <View style={styles.percentIcon}>
-              <Text style={styles.percentText}>%</Text>
+              <Icon name="local-offer" size={18} color="#fff" />
             </View>
             <Text style={styles.categoryTitle}>SHOP KIDS</Text>
           </View>
           <View style={styles.categoryRight}>
             <View style={styles.productImage}>
               <View style={styles.shoeImage}>
-                <Text style={styles.shoeText}>ADIDAS</Text>
-                <Text style={styles.shoeSubText}>FOOTBALL BOOT</Text>
+                <Icon name="child-care" size={40} color="#000" />
               </View>
             </View>
           </View>
@@ -147,87 +167,112 @@ export default function App() {
         <View style={styles.bottomSpacing} />
       </ScrollView>
 
-      {/* Bottom Navigation */}
+      {/* Bottom Nav */}
+      {/*reworked the bottom nav to include icons - jn */}
       <View style={styles.bottomNav}>
         <TouchableOpacity style={styles.navItem}>
-          <View style={styles.adidasLogo}>
-            <Text style={styles.adidasText}>⚫</Text>
-          </View>
+          <Icon name="home" size={28} color="#000" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <View style={styles.navIcon}>
-            <View style={styles.searchNavIcon} />
-          </View>
+          <Icon name="search" size={28} color="#000" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <View style={styles.navIcon}>
-            <View style={styles.heartIcon} />
-          </View>
+          <Icon name="favorite-border" size={28} color="#000" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <View style={styles.navIcon}>
-            <View style={styles.bagIcon} />
-          </View>
+          <Icon name="shopping-bag" size={28} color="#000" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <Text style={styles.adiClubText}>adiclub</Text>
+          <Icon name="person" size={28} color="#000" />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 }
 
+// Marked Everything with - jn for my changes
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-  },
+  container: { flex: 1, backgroundColor: '#ffffff' },
+
+  // Header styles - jn
+  // Reworked the header to include a search bar and dropdown menu - jn
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     paddingVertical: 15,
     backgroundColor: '#ffffff',
   },
+
+  // Header title styles - jn
+  // Reworked the header title to be more prominent - jn
   headerTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000000',
-    letterSpacing: 1,
+    fontSize: 18, fontWeight: 'bold', color: '#000000', letterSpacing: 1,
   },
-  headerIcons: {
+
+  searchWrapper: { flex: 1, marginHorizontal: 10 },
+
+  // Search bar styles - jn
+  // Reworked the search bar to include a dropdown menu - jn
+  searchBar: {
+    backgroundColor: '#f9f9f9',
+    borderColor: '#cccccc',
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
     flexDirection: 'row',
+    alignItems: 'center',
   },
-  iconButton: {
-    marginLeft: 15,
+
+  searchText: { color: '#999999', fontSize: 16 },
+
+// Search bar styles - jn
+// Reworked the search bar to include a dropdown menu - jn
+  dropdown: {
+    position: 'absolute',
+    top: 80,
+    left: 20,
+    right: 20,
+    backgroundColor: '#ffffff',
+    borderRadius: 8,
+    borderColor: '#cccccc',
+    borderWidth: 1,
+    zIndex: 10,
+    padding: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 5,
   },
-  searchIcon: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: '#000000',
+
+// Dropdown menu styles - jn
+// Reworked the dropdown menu to include items - jn
+  dropdownItem: {
+    paddingVertical: 10,
+    fontSize: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eeeeee',
+    color: '#000000',
   },
-  profileIcon: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: '#000000',
-  },
-  scrollView: {
-    flex: 1,
-  },
+
+  // Header Icons - jn
+  // Reworked the header icons to include a search and profile icon - jn
+  headerIcons: { flexDirection: 'row' },
+  iconButton: { marginLeft: 15 },
+
+  scrollView: { flex: 1 },
+
   promoBanner: {
     backgroundColor: '#000000',
     margin: 20,
     marginBottom: 10,
-    borderRadius: 0,
   },
-  promoContent: {
-    padding: 20,
-  },
+
+  promoContent: { padding: 20 },
+
   promoTitle: {
     backgroundColor: '#ffffff',
     color: '#000000',
@@ -238,6 +283,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginBottom: 8,
   },
+
   promoTimer: {
     backgroundColor: '#ffffff',
     color: '#000000',
@@ -248,11 +294,9 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     marginBottom: 15,
   },
-  promoSubtext: {
-    color: '#ffffff',
-    fontSize: 14,
-    marginBottom: 20,
-  },
+
+  promoSubtext: { color: '#ffffff', fontSize: 14, marginBottom: 20 },
+
   copyCodeButton: {
     backgroundColor: '#ffffff',
     flexDirection: 'row',
@@ -261,33 +305,39 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     alignSelf: 'flex-start',
   },
+
   copyCodeText: {
     color: '#000000',
     fontSize: 14,
     fontWeight: 'bold',
     marginRight: 8,
   },
-  copyIcon: {
-    width: 16,
-    height: 16,
-    backgroundColor: '#000000',
-  },
+
+  copyIcon: { width: 16, height: 16, backgroundColor: '#000000' },
+
+  // Category section styles - jn
+  // Reworked the category section to include icons - jn
   categorySection: {
     flexDirection: 'row',
     marginHorizontal: 20,
     marginBottom: 15,
     height: 120,
   },
+
   categoryLeft: {
     flex: 1,
     backgroundColor: '#f5f5f5',
     padding: 20,
     justifyContent: 'center',
   },
+
   categoryRight: {
     flex: 1,
     backgroundColor: '#e8e8e8',
   },
+
+  // Percent icon styles - jn
+  // Changed the percent icon to a local offer icon - jn
   percentIcon: {
     width: 30,
     height: 30,
@@ -297,21 +347,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
   },
-  percentText: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  categoryTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#000000',
-  },
-  productImage: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+
+  categoryTitle: { fontSize: 16, fontWeight: 'bold', color: '#000000' },
+
+  productImage: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+
+// Light themed shoe image - jn
+// Changed the shoe image to a simple icon - jn
   shoeImage: {
     width: 120,
     height: 80,
@@ -320,11 +362,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 8,
     elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
   },
+
+  // Dark themed shoe image - jn
+  // Changed the shoe image to a simple icon - jn
   shoeImageDark: {
     width: 120,
     height: 80,
@@ -333,32 +374,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 8,
     elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
   },
-  shoeText: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    color: '#000000',
-  },
-  shoeSubText: {
-    fontSize: 8,
-    color: '#666666',
-  },
-  shoeTextDark: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    color: '#ffffff',
-  },
-  shoeSubTextDark: {
-    fontSize: 8,
-    color: '#cccccc',
-  },
-  bottomSpacing: {
-    height: 50,
-  },
+
+  bottomSpacing: { height: 50 },
+
+  // Bottom Navigation styles - jn
+  // Reworked the bottom navigation to include icons - jn
   bottomNav: {
     flexDirection: 'row',
     backgroundColor: '#ffffff',
@@ -367,61 +388,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
   },
-  navItem: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  adidasLogo: {
-    alignItems: 'center',
-  },
-  adidasText: {
-    fontSize: 20,
-    color: '#000000',
-  },
-  navIcon: {
-    alignItems: 'center',
-  },
-  searchNavIcon: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    borderWidth: 2,
-    borderColor: '#666666',
-  },
-  heartIcon: {
-    width: 20,
-    height: 18,
-    borderWidth: 2,
-    borderColor: '#666666',
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-    transform: [{ rotate: '45deg' }],
-  },
-  bagIcon: {
-    width: 18,
-    height: 20,
-    borderWidth: 2,
-    borderColor: '#666666',
-    borderTopWidth: 0,
-    borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
-    borderBottomLeftRadius: 3,
-    borderBottomRightRadius: 3,
-  },
-  adiClubText: {
-    fontSize: 10,
-    color: '#000000',
-    fontWeight: '500',
-  },
-  homeIndicator: {
-    width: 150,
-    height: 4,
-    backgroundColor: '#000000',
-    borderRadius: 2,
-    alignSelf: 'center',
-    marginBottom: 8,
-  },
+
+  navItem: { flex: 1, alignItems: 'center', justifyContent: 'center' },
 });
