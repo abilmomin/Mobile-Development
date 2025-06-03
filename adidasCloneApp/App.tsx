@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+// imports for react icons - jn
 import {
   StyleSheet,
   Text,
@@ -14,6 +15,7 @@ import {
 export default function App() {
   const [timeLeft, setTimeLeft] = useState('48:53:29');
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  // State to manage the visibility of the dropdown menu - jn
 
   useEffect(() => {
     // Used chapgpt to help me implement the countdown timer
@@ -44,6 +46,7 @@ export default function App() {
       <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
 
       {/* Header */}
+      {/*reworked the header to include a search bar and dropdown menu - jn*/}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Group6Studios</Text>
 
@@ -90,6 +93,7 @@ export default function App() {
         </View>
 
         {/* Shop All */}
+        {/* Reworked the shop categories to include icons - jn */} 
         <View style={styles.categorySection}>
           <View style={styles.categoryLeft}>
             <View style={styles.percentIcon}>
@@ -107,6 +111,7 @@ export default function App() {
         </View>
 
         {/* Shop Men */}
+        {/*reworked the shop categories to include icons - jn */}
         <View style={styles.categorySection}>
           <View style={styles.categoryLeft}>
             <View style={styles.percentIcon}>
@@ -124,6 +129,7 @@ export default function App() {
         </View>
 
         {/* Shop Women */}
+        {/*reworked the shop categories to include icons - jn */}
         <View style={styles.categorySection}>
           <View style={styles.categoryLeft}>
             <View style={styles.percentIcon}>
@@ -141,6 +147,7 @@ export default function App() {
         </View>
 
         {/* Shop Kids */}
+        {/*reworked the shop categories to include icons - jn */}  
         <View style={styles.categorySection}>
           <View style={styles.categoryLeft}>
             <View style={styles.percentIcon}>
@@ -161,6 +168,7 @@ export default function App() {
       </ScrollView>
 
       {/* Bottom Nav */}
+      {/*reworked the bottom nav to include icons - jn */}
       <View style={styles.bottomNav}>
         <TouchableOpacity style={styles.navItem}>
           <Icon name="home" size={28} color="#000" />
@@ -182,9 +190,12 @@ export default function App() {
   );
 }
 
+// Marked Everything with - jn for my changes
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#ffffff' },
 
+  // Header styles - jn
+  // Reworked the header to include a search bar and dropdown menu - jn
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -194,12 +205,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
 
+  // Header title styles - jn
+  // Reworked the header title to be more prominent - jn
   headerTitle: {
     fontSize: 18, fontWeight: 'bold', color: '#000000', letterSpacing: 1,
   },
 
   searchWrapper: { flex: 1, marginHorizontal: 10 },
 
+  // Search bar styles - jn
+  // Reworked the search bar to include a dropdown menu - jn
   searchBar: {
     backgroundColor: '#f9f9f9',
     borderColor: '#cccccc',
@@ -213,6 +228,8 @@ const styles = StyleSheet.create({
 
   searchText: { color: '#999999', fontSize: 16 },
 
+// Search bar styles - jn
+// Reworked the search bar to include a dropdown menu - jn
   dropdown: {
     position: 'absolute',
     top: 80,
@@ -231,6 +248,8 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
 
+// Dropdown menu styles - jn
+// Reworked the dropdown menu to include items - jn
   dropdownItem: {
     paddingVertical: 10,
     fontSize: 16,
@@ -239,6 +258,8 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
 
+  // Header Icons - jn
+  // Reworked the header icons to include a search and profile icon - jn
   headerIcons: { flexDirection: 'row' },
   iconButton: { marginLeft: 15 },
 
@@ -294,6 +315,8 @@ const styles = StyleSheet.create({
 
   copyIcon: { width: 16, height: 16, backgroundColor: '#000000' },
 
+  // Category section styles - jn
+  // Reworked the category section to include icons - jn
   categorySection: {
     flexDirection: 'row',
     marginHorizontal: 20,
@@ -313,6 +336,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#e8e8e8',
   },
 
+  // Percent icon styles - jn
+  // Changed the percent icon to a local offer icon - jn
   percentIcon: {
     width: 30,
     height: 30,
@@ -327,6 +352,8 @@ const styles = StyleSheet.create({
 
   productImage: { flex: 1, justifyContent: 'center', alignItems: 'center' },
 
+// Light themed shoe image - jn
+// Changed the shoe image to a simple icon - jn
   shoeImage: {
     width: 120,
     height: 80,
@@ -337,6 +364,8 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
 
+  // Dark themed shoe image - jn
+  // Changed the shoe image to a simple icon - jn
   shoeImageDark: {
     width: 120,
     height: 80,
@@ -349,6 +378,8 @@ const styles = StyleSheet.create({
 
   bottomSpacing: { height: 50 },
 
+  // Bottom Navigation styles - jn
+  // Reworked the bottom navigation to include icons - jn
   bottomNav: {
     flexDirection: 'row',
     backgroundColor: '#ffffff',
