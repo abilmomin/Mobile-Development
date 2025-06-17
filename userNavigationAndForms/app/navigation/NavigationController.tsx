@@ -18,10 +18,3 @@ const NavigationController: React.FC = () => (
 );
 
 export default NavigationController;
-
-// Calgary.tsx
-import React from 'react';
-import { View, Text } from 'react-native';
-export default function Calgary() {
-  return <View><Text>Calgary Tab Works!</Text></View>;
-}
