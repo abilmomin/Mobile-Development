@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import TabNavigator from '../navigation/NavigationController';
+import { TabNavigator } from '../navigation/NavigationController';
 import { styles } from '../styles/WelcomeStyles';
 
 const WelcomeScreen: React.FC = () => {

@@ -7,6 +7,8 @@ import WelcomeScreen from './app/pages/Welcome';
 export type RootStackParamList = {
   SignIn: undefined;
   Welcome: undefined;
+  SignUp: undefined;
+
 };
 
 const Stack = createStackNavigator<RootStackParamList>();

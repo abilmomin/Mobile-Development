@@ -1,13 +1,21 @@
-// Need to impllement the SignUP page
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
-import { styles } from '../styles/SignInStyles'; // Reuse your existing styles
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../App'; // Adjust path if needed
+import { signUpStyles as styles } from '../styles/SignUpStyles';
 
-const SignUp: React.FC = () => {
+type SignUpNavigationProp = StackNavigationProp<RootStackParamList, 'SignUp'>;
+
+interface SignUpProps {
+  navigation: SignUpNavigationProp;
+}
+
+const SignUp: React.FC<SignUpProps> = ({ navigation }) => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
 
   const handleSignUp = () => {
     if (!name.trim()) {
@@ -30,7 +38,13 @@ const SignUp: React.FC = () => {
       return;
     }
 
+    if (!agreeToTerms) {
+      Alert.alert('Terms Not Accepted', 'You must agree to the terms and conditions.');
+      return;
+    }
+
     Alert.alert('Success', 'Account created successfully!');
+    // navigation.navigate('SignIn');
   };
 
   return (
@@ -69,8 +83,38 @@ const SignUp: React.FC = () => {
           secureTextEntry
         />
 
+        {/* Custom Checkbox */}
+        <TouchableOpacity
+          onPress={() => setAgreeToTerms(!agreeToTerms)}
+          style={styles.checkboxContainer}
+        >
+          <View
+            style={{
+              height: 20,
+              width: 20,
+              borderRadius: 3,
+              borderWidth: 1,
+              borderColor: '#999',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: agreeToTerms ? '#007AFF' : 'white',
+            }}
+          >
+            {agreeToTerms && (
+              <Text style={{ color: 'white', fontWeight: 'bold' }}>✓</Text>
+            )}
+          </View>
+          <Text style={styles.checkboxLabel}>I agree to the Terms and Conditions</Text>
+        </TouchableOpacity>
+
         <TouchableOpacity style={styles.button} onPress={handleSignUp}>
           <Text style={styles.buttonText}>Create Account</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.navigate('SignIn')}>
+          <Text style={styles.signInRedirect}>
+            Already have an account? Sign In
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
