@@ -17,12 +17,15 @@ const vancouverFacts = [
 export default function VancouverTab() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <View style={styles.imageContainer}>
-        <View style={styles.imagePlaceholder}>
-          <Text style={styles.imageText}>🌊 Vancouver Harbor</Text>
-          <Text style={styles.imageSubtext}>Mountains meet the Pacific Ocean</Text>
-        </View>
-      </View>
+        <View style={styles.imageContainer}>
+          <Image 
+            source={require('../../assets/vancouver.jpeg')} 
+            style={styles.cityImage}
+            resizeMode="cover"
+          />
+          
+          </View>
+    
 
       <CityLink url="https://vancouver.ca/" />
       
@@ -82,5 +85,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#333',
     textAlign: 'center',
+  },
+
+  cityImage: {
+    width: '100%',
+    height: 200,
+    borderRadius: 12,
   },
 });
