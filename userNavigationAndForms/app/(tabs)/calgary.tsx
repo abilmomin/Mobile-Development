@@ -17,10 +17,11 @@ export default function CalgaryTab() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.imageContainer}>
-        <View style={styles.imagePlaceholder}>
-          <Text style={styles.imageText}>🏔️ Calgary Skyline</Text>
-          <Text style={styles.imageSubtext}>Beautiful city with Rocky Mountain backdrop</Text>
-        </View>
+        <Image 
+          source={require('../../assets/calgary.jpg')} 
+          style={styles.cityImage}
+          resizeMode="cover"
+        />
       </View>
 
       <CityLink url="https://www.calgary.ca/home.html" />
@@ -80,4 +81,10 @@ const styles = StyleSheet.create({
     color: '#333',
     textAlign: 'center',
   },
+  cityImage: {
+    width: '100%',
+    height: 200,
+    borderRadius: 12,
+  },
+
 });
