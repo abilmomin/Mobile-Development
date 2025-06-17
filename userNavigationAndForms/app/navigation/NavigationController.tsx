@@ -6,11 +6,11 @@ import VancouverScreen from '../pages/Vancouver';
 
 const Tab = createBottomTabNavigator();
 
-const NavigationController: React.FC = () => {
+const TabNavigator: React.FC = () => {
   return (
     <Tab.Navigator
-      screenOptions={({ route }: { route: { name: string } }) => ({
-        tabBarIcon: ({ focused, color, size }: { focused: boolean; color: string; size: number }) => {
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
           let iconName: keyof typeof Ionicons.glyphMap;
           if (route.name === 'Calgary') {
             iconName = focused ? 'location' : 'location-outline';
@@ -31,4 +31,4 @@ const NavigationController: React.FC = () => {
   );
 };
 
-export default NavigationController;
+export default TabNavigator;

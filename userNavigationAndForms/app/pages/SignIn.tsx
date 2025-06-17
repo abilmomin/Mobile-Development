@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../App';
+import { RootStackParamList } from '../index';
 import { validateUsername, validatePassword, authenticateUser } from '../utils/UtilitiesForAuthentication';
 import { styles } from '../styles/SignInStyles';
 

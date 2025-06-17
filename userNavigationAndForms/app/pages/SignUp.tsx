@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../../App'; // Adjust path if needed
+import { RootStackParamList } from '../index'; 
 import { signUpStyles as styles } from '../styles/SignUpStyles';
 
 type SignUpNavigationProp = StackNavigationProp<RootStackParamList, 'SignUp'>;
