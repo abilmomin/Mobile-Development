@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import CityLink from '../../components/CityLink';
 import CityInfo from '../../components/CityInfo';
 
@@ -17,13 +17,12 @@ const vancouverFacts = [
 export default function VancouverTab() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-        <View style={styles.imageContainer}>
-          <Image 
-            source={require('../../assets/vancouver.jpeg')} 
-            style={styles.cityImage}
-            resizeMode="cover"
-          />
-          
+      <View style={styles.imageContainer}>
+        <Image 
+          source={require('../../assets/vancouver.jpeg')} 
+          style={styles.cityImage}
+          resizeMode="cover"
+        />
           </View>
     
 
@@ -49,7 +48,6 @@ const styles = StyleSheet.create({
   imageContainer: {
     alignItems: 'center',
     marginBottom: 20,
-    
   },
   imagePlaceholder: {
     width: '100%',
