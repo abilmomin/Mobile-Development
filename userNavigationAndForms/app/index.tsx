@@ -49,7 +49,7 @@ export default function SignInScreen() {
 
     if (user) {
       // Navigate to welcome screen with tabs
-      router.replace('/(tabs)');
+      router.replace('/(tabs)/calgary');
     } else {
       // Check if username exists but password is wrong
       const usernameExists = credentialsData.users.find((u) => u.username === username);
