@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     alignItems: 'center',
     marginBottom: 20,
+    
   },
   imagePlaceholder: {
     width: '100%',
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#A5D6A7',
     borderStyle: 'dashed',
+    
   },
   imageText: {
     fontSize: 24,
