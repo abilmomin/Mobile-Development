@@ -10,7 +10,11 @@ export default function HomeScreen() {
       <FruitList />
 
       <View style={styles.buttonContainer}>
-          <Button title="Go to Lab3" onPress={() => router.push("/lab3")} />
+          <Button title="Go to Lab 3" onPress={() => router.push("/lab3")} />
+      </View>
+
+      <View style={styles.buttonContainer}>
+          <Button title="Go to Lab 4" onPress={() => router.push("lab4")} />
       </View>
 
     </View>
