@@ -1,7 +1,7 @@
 import { View, Text, Button, StyleSheet } from 'react-native';
 import FruitList from '../components/FruitLists';
 import { router } from 'expo-router';
-import React from 'react';
+import * as React from 'react';
 
 export default function HomeScreen() {
   return (
