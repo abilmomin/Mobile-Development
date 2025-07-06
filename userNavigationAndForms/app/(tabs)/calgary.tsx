@@ -18,7 +18,7 @@ export default function CalgaryTab() {
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.imageContainer}>
         <Image 
-          source={require('../../assets/calgary.jpg')} 
+          source={require('../../assets/calgary.jpeg')} 
           style={styles.cityImage}
           resizeMode="cover"
         />
