@@ -148,8 +148,6 @@ const App = () => {
   );
 };
 
-export default App;
-
 // Styles for the app
 const styles = StyleSheet.create({
   scrollContainer: {
@@ -244,3 +242,5 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
 });
+
+export default App;
