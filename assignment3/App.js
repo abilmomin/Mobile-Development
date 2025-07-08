@@ -149,3 +149,98 @@ const App = () => {
 };
 
 export default App;
+
+// Styles for the app
+const styles = StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
+    minHeight: 300,
+    backgroundColor: '#ffffff', // forces the dark theme phone to avoid dark background at the start
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 5,
+  },
+  subtitle: {
+    fontSize: 14,
+    color: '#666',
+    textAlign: 'center',
+    fontStyle: 'italic',
+  },
+  formContainer: {
+    marginBottom: 20,
+  },
+  input: {
+    borderWidth: 2,
+    padding: 15,
+    borderRadius: 12,
+    marginBottom: 20,
+    fontSize: 14,
+    backgroundColor: '#fff',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  label: {
+    fontWeight: 'bold',
+    marginBottom: 8,
+    fontSize: 14,
+  },
+  pickerContainer: {
+    borderWidth: 2,
+    borderRadius: 12,
+    marginBottom: 20,
+    backgroundColor: '#fff',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    ...(Platform.OS === 'ios' && {
+      paddingHorizontal: 15,
+      paddingVertical: 5,
+    }),
+  },
+  picker: {
+    height: 50,
+    width: '100%',
+    fontSize: 14,
+    ...(Platform.OS === 'ios' && {
+      height: -10,
+    }),
+  },
+  factContainer: {
+    borderWidth: 2,
+    borderRadius: 15,
+    padding: 20,
+    marginTop: 10,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  factTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 15,
+  },
+  fact: {
+    fontSize: 16,
+    lineHeight: 24,
+    textAlign: 'center',
+    fontWeight: '500',
+  },
+});
