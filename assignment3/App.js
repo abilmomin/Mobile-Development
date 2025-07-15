@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   subtitle: {
-    scaleYfontSize: 14,
+    fontSize: 14,
     color: '#666',
     textAlign: 'center',
     fontStyle: 'italic',
