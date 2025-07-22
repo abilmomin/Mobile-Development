@@ -33,6 +33,14 @@ export default function TabLayout() {
             tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 18 }}>🌊</Text>,
           }}
         />
+
+        <Tabs.Screen
+          name="logout"
+          options={{
+            title: 'Logout',
+            tabBarIcon: ({ color }) => <Text style={{ color, fontSize: 18 }}>🚪</Text>,
+          }}
+        />
       </Tabs>
     </View>
   );
